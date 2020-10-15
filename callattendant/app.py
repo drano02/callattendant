@@ -124,7 +124,8 @@ class CallAttendant(object):
 
                 # An incoming call has occurred, log it
                 number = caller["NMBR"]
-                phone_no = "{}-{}-{}".format(number[0:3], number[3:6], number[6:])
+                #phone_no = "{}-{}-{}".format(number[0:3], number[3:6], number[6:])
+                phone_no = "{}-{}-{}".format(number[1:4], number[4:7], number[7:])
                 print("Incoming call from {}".format(phone_no))
 
                 # Vars used in the call screening
@@ -191,7 +192,8 @@ class CallAttendant(object):
                         break
 
                 # Answer the call!
-                if ok_to_answer and len(actions) > 0:
+                #if ok_to_answer and len(actions) > 0:
+                if ok_to_answer and len(actions):
                     self.answer_call(actions, greeting, call_no, caller)
 
             except Exception as e:
